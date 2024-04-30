@@ -23,8 +23,8 @@ class User < ApplicationRecord
   end
 
   def update_loyalty_tier!
-    self.to_gold!(tier: :gold)
-    self.to_platinum!(tier: :platinum)
+    to_gold!(tier: :gold) if standard?
+    to_platinum!(tier: :platinum) if gold?
   end
 
   def valid_tier_points?(tier:)
