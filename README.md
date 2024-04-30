@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is Karl Xavier del Campo technical test for Perx
 
-Things you may want to cover:
+RSpec Tests
 
-* Ruby version
+* `spec/models/transaction_spec.rb`
+  - Once new record has been created it will run `CalculatePointsWorker` to calculate and update User points.
+  - Points criteria are all stored in `PointsIssuingRule` table.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* `spec/workers/calculate_rewards_worker_spec.rb`
+  - `CalculateRewardsWorker` is to calculate and issue rewards to users who met the reward conditions.
+  - Reward conditions are all stored in `RewardsIssuingRule`
+ 
+* Please also check the `IssuingRulesSeeds` in `spec/support` which have all the rules and conditions for Points and Rewards.
